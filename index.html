@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ريونا - المساعد الذكي</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            color: #6a11cb;
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .tagline {
+            color: #666;
+            font-size: 1.2rem;
+        }
+        
+        .dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card h3 {
+            color: #2575fc;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        
+        .section {
+            margin: 20px 0;
+        }
+        
+        .section h4 {
+            color: #6a11cb;
+            margin-bottom: 10px;
+        }
+        
+        .progress-bar {
+            height: 10px;
+            background: #e0e0e0;
+            border-radius: 5px;
+            margin: 15px 0;
+            overflow: hidden;
+        }
+        
+        .progress {
+            height: 100%;
+            background: linear-gradient(90deg, #6a11cb, #2575fc);
+            border-radius: 5px;
+        }
+        
+        .inspiration-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .inspiration-item {
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        
+        .task-list {
+            list-style: none;
+        }
+        
+        .task-list li {
+            padding: 10px;
+            margin: 5px 0;
+            background: #f8f9fa;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .priority {
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        .high { background: #ff4757; color: white; }
+        .medium { background: #ffa502; color: white; }
+        .low { background: #2ed573; color: white; }
+        
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .update-btn {
+            background: linear-gradient(90deg, #6a11cb, #2575fc);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .update-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(106, 17, 203, 0.3);
+        }
+        
+        @media (max-width: 768px) {
+            .dashboard {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🦋 مساعد ريونا الذكي</h1>
+            <p class="tagline">مرحباً ريونا! أنا مساعدك الشخصي للفن، الموسيقى، والإلهام اليومي</p>
+            <button class="update-btn" onclick="updateDashboard()">🔄 تحديث البيانات اليومية</button>
+        </header>
+        
+        <div class="dashboard">
+            <!-- قسم 1: الأهداف -->
+            <div class="card">
+                <h3>🎯 أهداف ريونا</h3>
+                <div class="section">
+                    <h4>اليوتيوب</h4>
+                    <p>1000 مشاهدة في 3 أيام لكل مقطع</p>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 30%"></div>
+                    </div>
+                    <p>500 مشترك شهرياً</p>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 15%"></div>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h4>Rionasim</h4>
+                    <p>تطوير شخصية Rionasim كـ it girl الرسم</p>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 40%"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- قسم 2: المهام اليومية -->
+            <div class="card">
+                <h3>📋 المهام اليومية</h3>
+                <ul class="task-list">
+                    <li>
+                        <span>جمع إلهامات فنية جديدة</span>
+                        <span class="priority high">عالي</span>
+                    </li>
+                    <li>
+                        <span>كتابة 500 كلمة للقصة</span>
+                        <span class="priority high">عالي</span>
+                    </li>
+                    <li>
+                        <span>تصميم رسمة جديدة لـ Rionasim</span>
+                        <span class="priority medium">متوسط</span>
+                    </li>
+                    <li>
+                        <span>بحث عن اتجاهات فنية في كوريا</span>
+                        <span class="priority medium">متوسط</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- قسم 3: الإلهام اليومي -->
+            <div class="card">
+                <h3>✨ إلهام اليوم</h3>
+                <p>مواضيع البحث اليومية:</p>
+                <div class="inspiration-grid">
+                    <div class="inspiration-item">ألوان موسيقية</div>
+                    <div class="inspiration-item">فن الأنمي الكوري</div>
+                    <div class="inspiration-item">تصميم الشخصيات</div>
+                    <div class="inspiration-item">الويبتونز الناجحة</div>
+                    <div class="inspiration-item">إيماءات الرسم</div>
+                    <div class="inspiration-item">أزياء it girl</div>
+                </div>
+            </div>
+            
+            <!-- قسم 4: التقييم -->
+            <div class="card">
+                <h3>⭐ تقييم أداء المساعد</h3>
+                <div class="section">
+                    <h4>تقييم الأمس: 4/5 ★★★★☆</h4>
+                    <p><strong>الأفضل:</strong> تنوع مصادر الإلهام الفنية</p>
+                    <p><strong>الأسوأ:</strong> نقص في المحتوى الكوري</p>
+                </div>
+                <div class="section">
+                    <h4>تقييم اليوم:</h4>
+                    <select id="rating">
+                        <option value="5">5 ★★★★★ (ممتاز)</option>
+                        <option value="4">4 ★★★★☆ (جيد جداً)</option>
+                        <option value="3">3 ★★★☆☆ (جيد)</option>
+                        <option value="2">2 ★★☆☆☆ (مقبول)</option>
+                        <option value="1">1 ★☆☆☆☆ (ضعيف)</option>
+                    </select>
+                    <textarea id="feedback" placeholder="ملاحظاتك اليومية..." style="width:100%; margin-top:10px; padding:10px; border-radius:8px; border:1px solid #ddd; min-height:80px;"></textarea>
+                    <button class="update-btn" onclick="submitFeedback()" style="margin-top:10px;">📤 إرسال التقييم</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- قسم 5: الروابط المجمعة -->
+        <div class="card" style="grid-column: span 2;">
+            <h3>🔗 روابط إلهام مجمعة اليوم</h3>
+            <div class="inspiration-grid">
+                <div class="inspiration-item">🎨 موقع ألوان يابانية</div>
+                <div class="inspiration-item">🎵 موسيقى إلهامية كورية</div>
+                <div class="inspiration-item">📖 قصة ويبتون ناجحة</div>
+                <div class="inspiration-item">🎬 يوتيوبر فني كوري</div>
+                <div class="inspiration-item">🖌️ تقنيات رسم رقمية</div>
+                <div class="inspiration-item">👗 أزياء أنمي موضة</div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>💫 مساعد ريونا - الإصدار 1.0 | "ريونا أولاً قبل كل شيء"</p>
+            <p>آخر تحديث: <span id="last-update">اليوم</span></p>
+        </footer>
+    </div>
+
+    <script>
+        // وظائف JavaScript بسيطة
+        function updateDashboard() {
+            document.getElementById('last-update').textContent = new Date().toLocaleString('ar-SA');
+            alert('✅ تم تحديث البيانات! تحقق من مصادر الإلهام الجديدة.');
+        }
+        
+        function submitFeedback() {
+            const rating = document.getElementById('rating').value;
+            const feedback = document.getElementById('feedback').value;
+            alert(`شكراً لتقييمك! ${rating}/5\nملاحظاتك: ${feedback}`);
+            // هنا يمكن إضافة كود لإرسال البيانات للخادم
+        }
+        
+        // تحديث الوقت تلقائياً
+        setInterval(() => {
+            const now = new Date();
+            document.getElementById('last-update').textContent = 
+                `اليوم ${now.toLocaleDateString('ar-SA')} الساعة ${now.toLocaleTimeString('ar-SA')}`;
+        }, 60000);
+    </script>
+</body>
+</html>
